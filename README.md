@@ -129,6 +129,20 @@ N        dim   M     ef_c   ef_s    build(ms)  inserts/sec   p50(us)  p95(us)  p
     
 ```
 
+## Updated Benchmark Results (after adding parallelised inserts)
+
+Synthetic dataset of random unit vectors, K=10, 1000 queries, `ef_construction=400`.
+
+```
+N        dim   M     ef_c   ef_s    build(ms)  inserts/sec   p50(us)  p95(us)  p99(us)   QPS       recall@10
+--------------------------------------------------------------------------------------------------------------
+50000    32    16    400    50      5140       9728          68.8     142.6    220.3     12250     0.8981
+50000    32    16    400    100     5883       8499          135.5    268.0    515.8     6237      0.9762
+50000    32    16    400    200     5603       8923          261.1    484.8    951.2     3255      0.9972
+50000    32    32    400    50      8841       5656          103.9    227.0    352.4     7945      0.9770
+50000    32    32    400    100     8427       5933          212.1    424.1    673.5     4038      0.9976
+50000    32    32    400    200     7932       6304          372.3    719.6    976.8     2339      0.9994
+```
 
 
 > Run `./bench` on your machine to get numbers for your hardware. Results vary significantly with CPU, cache size, and available RAM.
